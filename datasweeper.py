@@ -7,7 +7,7 @@ st.set_page_config(" Data sweeper by samiya marium",layout="wide",page_icon=":ro
 st.title(" :rosette: Data Sweeper by samiya marium:rosette: ")
 st.write(" :rosette: Allows to clean duplicate csv data and  enter the missing fields :rosette:")
 uploaded_files=st.file_uploader("Upload your files (CSV or Excel):", type=["csv","xlsx"],accept_multiple_files=True)
-
+ buffer=BytesIO()
 if uploaded_files:
     for file in uploaded_files:
         file_ext=os.path.splitext(file.name)[-1].lower()
