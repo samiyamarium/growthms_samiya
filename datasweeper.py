@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd 
 from io import BytesIO
 import os
-import openpyxl
+
 
 st.set_page_config(" Data sweeper by samiya marium",layout="wide",page_icon=":rosette:")
 st.title(" :rosette: Data Sweeper by samiya marium:rosette: ")
