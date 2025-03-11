@@ -19,7 +19,7 @@ if uploaded_files:
             st.error(f"Unsupported file type:{file_ext}")
             continue
 #display info about file
-st.write(f"File Name:**{file.name}")
+st.write(f"File Name:{file.name}")
 st.write(f"**FileSize:**{file.size/1024}")
 
 #show 5 rows of our df
@@ -49,15 +49,13 @@ columns=st.multiselect(f"choose columns for {file.name}",df.columns, default=df.
 df=df[columns]
 
 #create some visualization
-#st.subheader(":rosette: Data visualization ")
-#if st.checkbox(f"show visualization for {file.name}"):
-  #  st.bar_chart(df.select_dtypes(include='number').iloc[:,:2])
+st.subheader(":rosette: Data visualization ")
+if st.checkbox(f"show visualization for {file.name}"):
+    st.bar_chart(df.select_dtypes(include='number').iloc[:,:2])
 
 #convert the file file csv to excel
 st.subheader("conversion options")
 conversion_type=st.radio(f"convert {file.name} to:",["csv","excel"],key=file.name)
-#buffer=BytesIO()
-
 if st.button(f"convert{file.name}"):
     buffer=BytesIO()
     if conversion_type=="csv":
@@ -70,11 +68,11 @@ if st.button(f"convert{file.name}"):
         file_name=file.name.replace(file_ext,".xslx")
         mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         buffer.seek(0)
-mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+
 #Download button
 st.download_button(
 label=f"Download {file.name} as {conversion_type}",
-data= buffer,
+data=buffer,
 #filename=file_name,
 mime=mime_type
 
