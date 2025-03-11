@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd 
+import io
 from io import BytesIO
 import os
-
 
 st.set_page_config(" Data sweeper by samiya marium",layout="wide",page_icon=":rosette:")
 st.title(" :rosette: Data Sweeper by samiya marium:rosette: ")
@@ -49,12 +49,17 @@ st.subheader("select columns to convert")
 columns=st.multiselect(f"choose columns for {file.name}",df.columns, default=df.columns)
 df=df[columns]
 
+#create some visualization
+#st.subheader(":rosette: Data visualization ")
+#if st.checkbox(f"show visualization for {file.name}"):
+ #   st.bar_chart(df.select_dtypes(include='number').iloc[:,:2])
 
 #convert the file file csv to excel
 st.subheader("conversion options")
 conversion_type=st.radio(f"convert {file.name} to:",["csv","excel"],key=file.name)
+buffer=io.BytesIO()
 if st.button(f"convert{file.name}"):
-    buffer=BytesIO()
+   # buffer=io.BytesIO()
     if conversion_type=="csv":
         df.to_csv(buffer,index=False)
         file_name=file.name.replace(file_ext,".csv")
@@ -65,12 +70,12 @@ if st.button(f"convert{file.name}"):
         file_name=file.name.replace(file_ext,".xslx")
         mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         buffer.seek(0)
-data=buffer
-mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+
 #Download button
+mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 st.download_button(
 label=f"Download {file.name} as {conversion_type}",
-#data=buffer,
+data= buffer,
 #filename=file_name,
 mime=mime_type
 
