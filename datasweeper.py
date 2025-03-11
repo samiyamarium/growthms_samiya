@@ -78,7 +78,7 @@ st.download_button(
 label=f"Download {file.name} as {conversion_type}",
 data= buffer,
 #filename=file_name,
-mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
 mime=mime_type
 
 )
