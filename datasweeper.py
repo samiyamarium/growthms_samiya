@@ -65,11 +65,12 @@ if st.button(f"convert{file.name}"):
         file_name=file.name.replace(file_ext,".xslx")
         mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         buffer.seek(0)
+data=buffer
 mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 #Download button
 st.download_button(
 label=f"Download {file.name} as {conversion_type}",
-data=buffer,
+#data=buffer,
 #filename=file_name,
 mime=mime_type
 
