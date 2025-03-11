@@ -19,8 +19,8 @@ if uploaded_files:
             st.error(f"Unsupported file type:{file_ext}")
             continue
 #display info about file
-st.write(f"File Name:{file.name}")
-st.write(f"**FileSize:**{file.size/1024}")
+#st.write(f"File Name:{file.name}")
+#st.write(f"**FileSize:**{file.size/1024}")
 
 #show 5 rows of our df
 st.write("Preview the head of the data frame")
