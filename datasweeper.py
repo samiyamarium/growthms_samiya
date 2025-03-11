@@ -68,7 +68,7 @@ if st.button(f"convert{file.name}"):
     elif conversion_type=="excel":
         df.to_excel(buffer,index=False)
         file_name=file.name.replace(file_ext,".xslx")
-       # mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         buffer.seek(0)
 
 #Download button
