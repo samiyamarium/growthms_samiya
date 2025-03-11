@@ -48,10 +48,6 @@ st.subheader("select columns to convert")
 columns=st.multiselect(f"choose columns for {file.name}",df.columns, default=df.columns)
 df=df[columns]
 
-#create some visualization
-st.subheader(":rosette: Data visualization ")
-if st.checkbox(f"show visualization for {file.name}"):
-    st.bar_chart(df.select_dtypes(include='number').iloc[:,:2])
 
 #convert the file file csv to excel
 st.subheader("conversion options")
