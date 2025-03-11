@@ -56,7 +56,7 @@ df=df[columns]
 #convert the file file csv to excel
 st.subheader("conversion options")
 conversion_type=st.radio(f"convert {file.name} to:",["csv","excel"],key=file.name)
-buffer=BytesIO()
+#buffer=BytesIO()
 
 if st.button(f"convert{file.name}"):
     buffer=BytesIO()
