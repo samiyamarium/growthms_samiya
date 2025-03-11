@@ -60,12 +60,12 @@ conversion_type=st.radio(f"convert {file.name} to:",["csv","excel"],key=file.nam
 buffer=io.BytesIO()
 if st.button(f"convert{file.name}"):
    # buffer=io.BytesIO()
-    if conversion_type=="csv":
+    if conversion_type=="CSV":
         df.to_csv(buffer,index=False)
         file_name=file.name.replace(file_ext,".csv")
         mime_type="text/csv"
     
-    elif conversion_type=="excel":
+    elif conversion_type=="EXCEL":
         df.to_excel(buffer,index=False)
         file_name=file.name.replace(file_ext,".xslx")
        
