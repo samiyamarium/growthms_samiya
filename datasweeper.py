@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd 
 from io import BytesIO
 import os
+import workbook
 
 st.set_page_config(" Data sweeper by samiya marium",layout="wide",page_icon=":rosette:")
 st.title(" :rosette: Data Sweeper by samiya marium:rosette: ")
@@ -68,7 +69,7 @@ if st.button(f"convert{file.name}"):
         file_name=file.name.replace(file_ext,".xslx")
         mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         buffer.seek(0)
-mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+
 #Download button
 st.download_button(
 label=f"Download {file.name} as {conversion_type}",
