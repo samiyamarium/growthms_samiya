@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd 
 from io import BytesIO
 import os
+import openpyxl
 
 st.set_page_config(" Data sweeper by samiya marium",layout="wide",page_icon=":rosette:")
 st.title(" :rosette: Data Sweeper by samiya marium:rosette: ")
@@ -48,7 +49,7 @@ st.subheader("select columns to convert")
 columns=st.multiselect(f"choose columns for {file.name}",df.columns, default=df.columns)
 df=df[columns]
 
-buffer=BytesIO()
+
 #convert the file file csv to excel
 st.subheader("conversion options")
 conversion_type=st.radio(f"convert {file.name} to:",["csv","excel"],key=file.name)
