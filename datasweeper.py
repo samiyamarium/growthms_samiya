@@ -1,13 +1,12 @@
 import streamlit as st
 import pandas as pd 
-import io
 from io import BytesIO
 import os
 
 st.set_page_config(" Data sweeper by samiya marium",layout="wide",page_icon=":rosette:")
 st.title(" :rosette: Data Sweeper by samiya marium:rosette: ")
 st.write(" :rosette: Allows to clean duplicate csv data and  enter the missing fields :rosette:")
-uploaded_files=st.file_uploader("Upload your files (CSV or Excel):", type=["CSV","XLSX"],accept_multiple_files=True)
+uploaded_files=st.file_uploader("Upload your files (CSV or Excel):", type=["csv","xlsx"],accept_multiple_files=True)
 
 if uploaded_files:
     for file in uploaded_files:
@@ -57,23 +56,20 @@ df=df[columns]
 #convert the file file csv to excel
 st.subheader("conversion options")
 conversion_type=st.radio(f"convert {file.name} to:",["csv","excel"],key=file.name)
-buffer=io.BytesIO()
 if st.button(f"convert{file.name}"):
-   # buffer=io.BytesIO()
-    if conversion_type=="CSV":
+    buffer=BytesIO()
+    if conversion_type=="csv":
         df.to_csv(buffer,index=False)
         file_name=file.name.replace(file_ext,".csv")
         mime_type="text/csv"
     
-    elif conversion_type=="EXCEL":
+    elif conversion_type=="excel":
         df.to_excel(buffer,index=False)
         file_name=file.name.replace(file_ext,".xslx")
-       
-        #mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         buffer.seek(0)
 
 #Download button
-mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 st.download_button(
 label=f"Download {file.name} as {conversion_type}",
 data= buffer,
