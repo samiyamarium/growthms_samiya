@@ -56,12 +56,12 @@ conversion_type=st.radio(f"convert {file.name} to:",["csv","excel"],key=file.nam
 if st.button(f"convert{file.name}"):
     buffer=BytesIO()
     if conversion_type=="csv":
-        df.to_csv(buffer,index=False,engine='openpyxl')
+        df.to_csv(buffer,index=False)
         file_name=file.name.replace(file_ext,".csv")
         mime_type="text/csv"
     
     elif conversion_type=="excel":
-        df.to_excel(buffer,index=False,engine='openpyxl')
+        df.to_excel(buffer,index=False)
         file_name=file.name.replace(file_ext,".xslx")
         mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         buffer.seek(0)
