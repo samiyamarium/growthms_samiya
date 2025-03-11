@@ -59,7 +59,7 @@ conversion_type=st.radio(f"convert {file.name} to:",["csv","excel"],key=file.nam
 buffer=BytesIO()
 
 if st.button(f"convert{file.name}"):
-    #buffer=BytesIO()
+    buffer=BytesIO()
     if conversion_type=="csv":
         df.to_csv(buffer,index=False)
         file_name=file.name.replace(file_ext,".csv")
