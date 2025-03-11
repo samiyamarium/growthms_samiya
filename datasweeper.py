@@ -48,7 +48,7 @@ st.subheader("select columns to convert")
 columns=st.multiselect(f"choose columns for {file.name}",df.columns, default=df.columns)
 df=df[columns]
 
-    buffer=BytesIO()
+buffer=BytesIO()
 #convert the file file csv to excel
 st.subheader("conversion options")
 conversion_type=st.radio(f"convert {file.name} to:",["csv","excel"],key=file.name)
