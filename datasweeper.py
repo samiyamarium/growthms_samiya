@@ -8,7 +8,7 @@ import os
 st.set_page_config(" Data sweeper by samiya marium",layout="wide",page_icon=":rosette:")
 st.title(" :rosette: Data Sweeper by samiya marium:rosette: ")
 st.write(" :rosette: Allows to clean duplicate csv data and  enter the missing fields :rosette:")
-uploaded_files=st.file_uploader("Upload your files (CSV or Excel):", type=["csv","xlsx"],accept_multiple_files=True)
+uploaded_files=st.file_uploader("Upload your files (CSV or Html):", type=["csv","html"],accept_multiple_files=True)
 
 if uploaded_files:
     for file in uploaded_files:
@@ -57,7 +57,7 @@ df=df[columns]
 
 #convert the file file csv to excel
 st.subheader("conversion options")
-conversion_type=st.radio(f"convert {file.name} to:",["csv","excel"],key=file.name)
+conversion_type=st.radio(f"convert {file.name} to:",["csv","text"],key=file.name)
 if st.button(f"convert{file.name}"):
     buffer=BytesIO()
     if conversion_type=="csv":
@@ -65,10 +65,11 @@ if st.button(f"convert{file.name}"):
         file_name=file.name.replace(file_ext,".csv")
         mime_type="text/csv"
     
-    elif conversion_type=="excel":
+    elif conversion_type=="html":
         df.to_excel(buffer,index=False)
-        file_name=file.name.replace(file_ext,".xslx")
-       mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        file_name=file.name.replace(file_ext,".htm")
+       #mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+       #mime_type="text/html"
         buffer.seek(0)
 
 #Download button
