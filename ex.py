@@ -6,7 +6,7 @@ import os
 
 
 st.set_page_config(" Data sweeper by samiya marium",layout="wide",page_icon=":rosette:")
-#st.set_option('client.showErrorDetails', False)
+st.set_option('client.showErrorDetails', True)
 st.title(" :rosette: Data Sweeper by samiya marium:rosette: ")
 st.write(" :rosette: Allows to clean unnecessary csv data and  generate a modified CSV :rosette:")
 uploaded_files=st.file_uploader("Upload your files (CSV):", type=["csv"],accept_multiple_files=True)
