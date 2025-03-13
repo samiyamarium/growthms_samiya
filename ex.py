@@ -10,21 +10,21 @@ st.set_option('client.showErrorDetails', True)
 st.title(" :rosette: Data Sweeper by samiya marium:rosette: ")
 st.write(" :rosette: Allows to clean unnecessary csv data and  generate a modified CSV :rosette:")
 uploaded_files=st.file_uploader("Upload your files (CSV):", type=["csv"],accept_multiple_files=True)
-st.subheader("You are ready to use the app!! Browse a file using above given button to disable the traceback appearing below ")
+#st.subheader("You are ready to use the app!! Browse a file using above given button to disable the traceback appearing below ")
 if uploaded_files:
     for file in uploaded_files:
         file_ext=os.path.splitext(file.name)[-1].lower()
         if file_ext==".csv":
             df=pd.read_csv(file)
-            #st.write(f"File Name:{file.name}")
-            #st.write(f"**FileSize:**{file.size/1024}")
+            st.write(f"File Name:{file.name}")
+            st.write(f"**FileSize:**{file.size/1024}")
         else:
             st.error(f"Unsupported file type:{file_ext}")
             continue
 
 #display info about file
-st.write(f"File Name:{file.name}")
-st.write(f"**FileSize:**{file.size/1024}")
+#st.write(f"File Name:{file.name}")
+#st.write(f"**FileSize:**{file.size/1024}")
 
 #show  rows of our df
 st.write("Preview the head of the data frame")
