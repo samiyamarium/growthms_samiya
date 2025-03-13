@@ -10,7 +10,7 @@ st.set_option('client.showErrorDetails', True)
 st.title(" :rosette: Data Sweeper by samiya marium:rosette: ")
 st.write(" :rosette: Allows to clean unnecessary csv data and  generate a modified CSV :rosette:")
 uploaded_files=st.file_uploader("Upload your files (CSV):", type=["csv"],accept_multiple_files=True)
-st.subheader(" :sunglasses: You are ready to use the app!!")  
+st.subheader(" :sunglasses: :green[ You are ready to use the app!!]")  
 st.write(":red[IMPORTANT !!]  :rosette:  :violet[Browse a file using above given button to disable the traceback appearing below if any and enjoy the smooth app!!] :rosette: ")
 if uploaded_files:
     for file in uploaded_files:
